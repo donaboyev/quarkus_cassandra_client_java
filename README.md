@@ -1,5 +1,31 @@
 # quarkus_cassandra_client_java
 
+```shell
+    docker pull cassandra
+```
+```shell
+     docker run --name cassandra -p 127.0.0.1:9042:9042 -p 127.0.0.1:9160:9160   -d cassandra
+```
+```shell
+      docker exec -it cassandra /bin/bash
+```
+```shell
+      cqlsh
+```
+```shell
+      use system;
+```
+```shell
+      select data_center from local;
+```
+```shell
+      CREATE KEYSPACE inventory
+      WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+```
+```shell
+      CREATE TABLE inventory.product(id uuid PRIMARY KEY, description text);
+```
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
